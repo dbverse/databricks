@@ -10,10 +10,13 @@ resources:
       name: ${bundle.target}-retail-raw-ingestion-pipeline # Pipeline name in Databricks UI
       # storage_location removed: DLT manages storage location automatically with Unity Catalog target.
       libraries:
-        - file: src/retail_raw_dlt_pipeline.py # Path to DLT pipeline script
+        - notebook: # Changed to 'notebook' to indicate a Databricks notebook file
+            path: src/retail_dlt.ipynb # Path to your DLT notebook file
       target: raw # Tables published to 'raw' schema in Unity Catalog
-      catalog: users # Explicitly set Unity Catalog catalog, as per your reference
+      catalog: dbndev # Explicitly set Unity Catalog catalog
       serverless: true # Explicitly enable serverless compute for the DLT pipeline
+      # Removed 'clusters' block entirely, as 'serverless: true' makes it redundant and
+      # could cause conflicts with workspace-level serverless requirements.
       continuous: false # Batch pipeline
       development: true # Set to false for production deployments
       photon: true # Enabled Photon, essential for Serverless DLT in most configurations
