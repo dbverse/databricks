@@ -25,11 +25,12 @@ To use and deploy this project, you'll need:
     -   `DAB/databricks.yaml`: The main bundle configuration.
     -   `DAB/src/retail_raw_dlt_pipeline.ipynb`: Your DLT pipeline notebook.
 -   **Databricks CLI (Version 0.200.0+)**: The new Databricks CLI is essential for `bundle` commands.
-    -   **Installation**: Can be installed via `pip` (e.g., `pip install databricks-cli`) or `brew` within WSL (e.g., `brew install databricks`).
+    -   **Installation**: Can be installed via `pip` (e.g., `pip install databricks-cli`) or `brew` within WSL (e.g., `brew install databricks`).Brew is the safer option. 
     -   **Authentication**: Configure the CLI with your Databricks workspace URL and a Personal Access Token (`databricks configure`).
     -   **Enterprise Note**: In enterprise environments, the `databricks.exe` executable might be directly included in the DAB folder for easier execution without relying on system-wide PATH configurations or WSL.
 -   **Databricks Workspace**: An active Databricks workspace with Unity Catalog enabled.
 -   **Unity Catalog Volume**: Raw data files (orders, customers, products) should be present in the `/Volumes/dbndev/raw/inbound` path within your Unity Catalog.
+-   **Deploy Command**: To deploy the job also, we need to execute the command 'databricks bundle deploy -t dev' as our YAML is structured that way. For the pipeline, 'databricks bundle deploy' is enough. 
 
 ---
 
