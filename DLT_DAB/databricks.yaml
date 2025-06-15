@@ -34,4 +34,4 @@ resources:
 targets:
   dev:
     workspace:
-      host: https://dbc-90c2efcc-0370.cloud.databricks.com/ # Your Databricks workspace URL
+      host: https://***.cloud.databricks.com/ # Your Databricks workspace URL
