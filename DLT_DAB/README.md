@@ -1,12 +1,12 @@
-# Databricks Retail DLT Pipeline Setup
+# Databricks Retail DLT Pipeline Setup (Databricks Free Edition)
 
 This project sets up a **Delta Live Tables (DLT) pipeline** using a **Databricks Asset Bundle (DAB)**. Its main goal is to ingest raw retail data into a **Raw data layer** within Unity Catalog, with intelligent partitioning.
 
 ---
 
-## What We Did
+## What the project is about :
 
-We developed a robust solution to process retail data:
+Developed a robust solution to process retail data:
 
 -   **Project Structure**: Organized files within a `DAB/` folder, including the `databricks.yaml` configuration and `src/retail_raw_dlt_pipeline.ipynb` for the DLT code.
 -   **DLT Pipeline**: Created a DLT pipeline focused on ingesting `raw_orders`, `raw_customers`, and `raw_products` data.
@@ -25,9 +25,9 @@ To use and deploy this project, you'll need:
     -   `DAB/databricks.yaml`: The main bundle configuration.
     -   `DAB/src/retail_raw_dlt_pipeline.ipynb`: Your DLT pipeline notebook.
 -   **Databricks CLI (Version 0.200.0+)**: The new Databricks CLI is essential for `bundle` commands.
-    -   **Installation**: Can be installed via `pip` (e.g., `pip install databricks-cli`) or `brew` within WSL (e.g., `brew install databricks`).Brew is the safer option. 
+    -   **Installation**: Can be installed via `pip` (e.g., `pip install databricks-cli`) or `brew` within WSL (e.g., `brew install databricks`). Brew is the safer option. 
     -   **Authentication**: Configure the CLI with your Databricks workspace URL and a Personal Access Token (`databricks configure`).
-    -   **Enterprise Note**: In enterprise environments, the `databricks.exe` executable might be directly included in the DAB folder for easier execution without relying on system-wide PATH configurations or WSL.
+    -   **Enterprise Note**: In enterprise environments, the `databricks.exe` executable might be directly included in the DAB folder for easier execution in lower environments without relying on system-wide PATH configurations or WSL.
 -   **Databricks Workspace**: An active Databricks workspace with Unity Catalog enabled.
 -   **Unity Catalog Volume**: Raw data files (orders, customers, products) should be present in the `/Volumes/dbndev/raw/inbound` path within your Unity Catalog.
 -   **Deploy Command**: To deploy the job also, we need to execute the command 'databricks bundle deploy -t dev' as our YAML is structured that way. For the pipeline, 'databricks bundle deploy' is enough. 
@@ -36,7 +36,7 @@ To use and deploy this project, you'll need:
 
 ## Key Errors Faced & Resolutions
 
-We encountered and resolved several critical errors during development:
+Encountered and resolved several critical errors during development:
 
 -   **"No such command 'bundle'"**:
     -   **Cause**: Using an older Databricks CLI version (e.g., 0.18.0) that lacked DAB support.
