@@ -17,7 +17,7 @@ Developed a robust solution to process retail data:
 
 ---
 
-## What's Required
+## What's Required :
 
 To use and deploy this project, you'll need:
 
@@ -34,7 +34,7 @@ To use and deploy this project, you'll need:
 
 ---
 
-## Key Errors Faced & Resolutions
+## Key Errors Faced & Resolutions :
 
 Encountered and resolved several critical errors during development:
 
