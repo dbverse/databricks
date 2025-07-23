@@ -1,0 +1,33 @@
+# databricks.yml
+# This YAML file defines a simple Databricks job bundle for a serverless compute environment.
+bundle:
+  name: simple_serverless_basic_job # A unique name for your bundle
+  target: dev
+
+
+resources:
+  jobs:
+    my_basic_serverless_notebook_job:
+      # Job name using only bundle.name for maximum robustness
+      name: ${bundle.target}-my_basic_serverless_notebook_job # Name of the job in Databricks UI
+      tasks:
+        - task_key: run_basic_notebook 
+          notebook_task:
+            notebook_path: src/sample.ipynb # Path to your notebook (relative to bundle root)
+            base_parameters:
+              process_date: "2025-07-23" # Example default parameter for the notebook
+
+targets:
+  dev: 
+    workspace:
+      host: https://dbc-90c2efcc-0370.cloud.databricks.com/ # Your Databricks workspace URL
+      profile: DEFAULT # Your Databricks CLI profile name (e.g., defined in ~/.databrickscfg)
+    default:
+      # This is crucial. It defines where your local 'src/' files will be uploaded in Databricks.
+      artifact_path: bundles/${bundle.name}/dev 
+
+    resources:
+      jobs:
+        # This tells the bundle to deploy the job named 'my_basic_serverless_notebook_job'
+        # which is defined in the top-level 'resources' block.
+        my_basic_serverless_notebook_job: {}
