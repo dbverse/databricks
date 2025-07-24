@@ -20,7 +20,7 @@ resources:
 targets:
   dev: 
     workspace:
-      host: https://dbc-90c2efcc-0370.cloud.databricks.com/ # Your Databricks workspace URL
+      host: https://*****.cloud.databricks.com/ # Your Databricks workspace URL
       profile: DEFAULT # Your Databricks CLI profile name (e.g., defined in ~/.databrickscfg)
     default:
       # This is crucial. It defines where your local 'src/' files will be uploaded in Databricks.
